@@ -21,7 +21,7 @@ miniStyle() {
 }
 
 // App Colors
-var backgroundColor = Color(0xffe5f0f4);
+var backgroundColor =Color.fromRGBO(247, 236, 222,0) ;
 var primaryColor = Colors.teal;
 var secondaryColor = Color(0xff7bc496);
 

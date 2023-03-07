@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
         leading: Icon(
-          Icons.menu,
+          Icons.sort_rounded,
           color: greenColor,
         ),
         title: Text(
@@ -23,11 +23,17 @@ class HomePage extends StatelessWidget {
           style: titleGreenStyle(),
         ),
         actions: [
-          CircleAvatar(
-            backgroundColor: blueColor,
-            backgroundImage: const AssetImage(
-              "assets/icons/moon.png",
+          IconButton(
+            icon: CircleAvatar(
+              backgroundColor: blueColor,
+              radius: 35,
+              backgroundImage: const AssetImage(
+                "assets/icons/profile.png",
+              ),
             ),
+            onPressed: () {
+              print('Profile button Pressed');
+            },
           )
         ],
       ),
@@ -39,18 +45,20 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                  padding: EdgeInsets.only(bottom: height * .01),
-                  child: Center(
-                    child: Image(
-                      image: const AssetImage('assets/icons/logo.png'),
-                      width: width * .2,
-                    ),
-                  )),
+                padding: EdgeInsets.only(bottom: height * .01),
+                child: Center(
+                  child: Image(
+                    image: const AssetImage('assets/icons/logo.png'),
+                    width: width * .2,
+                  ),
+                ),
+              ),
               LastReadWidget(height: height, width: width),
+              LiveUpdate(height: height, width: width),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: Dashboard(height: height),
-              )
+              ),
             ],
           ),
         ),
@@ -211,6 +219,121 @@ class CustomContainer extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class LiveUpdate extends StatelessWidget {
+  const LiveUpdate({super.key, required this.height, required this.width});
+  final double height;
+  final double width;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: width * .06),
+      child: GestureDetector(
+        // onTap: () => Fluttertoast.showToast(msg: "This feature will be available in next release"),
+        onTap: () {},
+        child: Row(
+          children: [
+            Flexible(
+              flex: 2,
+              child: Container(
+                height: height * .13,
+                width: width,
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(1.5, 3), // changes position of shadow
+                      ),
+                    ],
+                    image: DecorationImage(
+                        image: AssetImage('assets/icons/update.png'),
+                        fit: BoxFit.contain),
+                    borderRadius: BorderRadius.circular(30)),
+                child: Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: [
+                        Colors.indigo.withOpacity(0.7),
+                        secondaryColor.withOpacity(0.7)
+                      ]),
+                      borderRadius: BorderRadius.circular(25)),
+                  child: Row(children: [
+                    Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: width * .01, vertical: height * .01),
+                        child: SizedBox(
+                          width: width * .3,
+                          child: ListTile(
+                            title: Text(
+                              "Update",
+                              style: titleStyle(),
+                            ),
+                            subtitle: Text(
+                              'More about',
+                              style: subtitleStyle(),
+                            ),
+                          ),
+                        )),
+                  ]),
+                ),
+              ),
+            ),
+            Flexible(
+              flex: 3,
+              child: Padding(
+                padding: EdgeInsets.only(left: width * .06),
+                child: Container(
+                  height: height * .13,
+                  width: width,
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(1.5, 3), // changes position of shadow
+                        ),
+                      ],
+                      image: DecorationImage(
+                          image: AssetImage('assets/icons/live.png'),
+                          fit: BoxFit.contain),
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [
+                          primaryColor.withOpacity(0.7),
+                          Colors.red.withOpacity(0.7)
+                        ]),
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Row(children: [
+                      Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: width * .01, vertical: height * .01),
+                          child: SizedBox(
+                            width: width * .4,
+                            child: ListTile(
+                              title: Text(
+                                "Live",
+                                style: titleStyle(),
+                              ),
+                              subtitle: Text(
+                                'More about',
+                                style: subtitleStyle(),
+                              ),
+                            ),
+                          )),
+                    ]),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
