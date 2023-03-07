@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: CircleAvatar(
               backgroundColor: blueColor,
-              radius: 35,
+              radius: 50,
               backgroundImage: const AssetImage(
                 "assets/icons/profile.png",
               ),
@@ -87,25 +87,33 @@ class Dashboard extends StatelessWidget {
                   image: 'assets/icons/quran.png',
                   title: "Quran",
                   color: greenColor,
-                  onpressed: () {}),
+                  onpressed: () {
+                    Navigator.of(context).pushNamed('quran');
+                  }),
               CustomContainer(
                   height1: height * .20,
                   image: 'assets/icons/adkaar.png',
                   title: "Adkaar",
                   color: purpleColor,
-                  onpressed: () {}),
+                  onpressed: () {
+                    Navigator.of(context).pushNamed('adkaar');
+                  }),
               CustomContainer(
                   height1: height * .27,
                   image: 'assets/icons/dua.png',
                   title: "Dua",
                   color: greenColor,
-                  onpressed: () {}),
+                  onpressed: () {
+                    Navigator.of(context).pushNamed('dua');
+                  }),
               CustomContainer(
                   height1: height * .20,
                   image: 'assets/icons/bookmark.png',
                   title: "Bookmarks",
                   color: purpleColor,
-                  onpressed: () {}),
+                  onpressed: () {
+                    Navigator.of(context).pushNamed('bookmark');
+                  }),
               //CustomContainer(height1: height*.28, width1: width*.4)
             ],
           ),
@@ -119,25 +127,35 @@ class Dashboard extends StatelessWidget {
                 image: 'assets/icons/moulid.png',
                 title: "Moulid",
                 color: redColor,
+                onpressed: () {
+                  Navigator.of(context).pushNamed('moulid');
+                },
               ),
               CustomContainer(
                   height1: height * .27,
                   image: 'assets/icons/thasbeeh.png',
                   title: "Swlathu Saadha Thasbeeh",
                   color: blueColor,
-                  onpressed: () {}),
+                  onpressed: () {
+                    Navigator.of(context).pushNamed('swa_thasbeeh');
+                  }),
               CustomContainer(
                 height1: height * .2,
                 image: 'assets/icons/mic.png',
                 title: "Nasweehath",
                 color: redColor,
+                onpressed: () {
+                  Navigator.of(context).pushNamed('nasweehath');
+                },
               ),
               CustomContainer(
                   height1: height * .27,
                   image: 'assets/icons/counter.png',
                   title: "Counter",
                   color: blueColor,
-                  onpressed: () {}),
+                  onpressed: () {
+                    Navigator.of(context).pushNamed('counter');
+                  }),
 
               //CustomContainer(height1: height*.28, width1: width*.4)
             ],
@@ -161,7 +179,7 @@ class CustomContainer extends StatelessWidget {
   final double height1;
   final String image;
   final String title;
-  final Function? onpressed;
+  final Function()? onpressed;
   final Color color;
 
   @override
@@ -171,7 +189,7 @@ class CustomContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: width * .06),
       child: GestureDetector(
-        // onTap: onpressed,
+        onTap: onpressed,
         child: Container(
           height: height1,
           width: width * .4,
@@ -233,13 +251,14 @@ class LiveUpdate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: width * .06),
-      child: GestureDetector(
-        // onTap: () => Fluttertoast.showToast(msg: "This feature will be available in next release"),
-        onTap: () {},
-        child: Row(
-          children: [
-            Flexible(
-              flex: 2,
+      child: Row(
+        children: [
+          Flexible(
+            flex: 2,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed('update');
+              },
               child: Container(
                 height: height * .13,
                 width: width,
@@ -284,10 +303,15 @@ class LiveUpdate extends StatelessWidget {
                 ),
               ),
             ),
-            Flexible(
-              flex: 3,
-              child: Padding(
-                padding: EdgeInsets.only(left: width * .06),
+          ),
+          Flexible(
+            flex: 3,
+            child: Padding(
+              padding: EdgeInsets.only(left: width * .06),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed('live');
+                },
                 child: Container(
                   height: height * .13,
                   width: width,
@@ -333,8 +357,8 @@ class LiveUpdate extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -354,7 +378,9 @@ class LastReadWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       // onTap: () => Fluttertoast.showToast(msg: "This feature will be available in next release"),
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).pushNamed('about');
+      },
       child: Container(
         height: height * .15,
         width: width,
