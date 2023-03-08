@@ -21,7 +21,7 @@ miniStyle() {
 }
 
 // App Colors
-var backgroundColor =Color.fromRGBO(247, 236, 222,0) ;
+var backgroundColor = Color.fromRGBO(247, 236, 222, 0);
 var primaryColor = Colors.teal;
 var secondaryColor = Color(0xff7bc496);
 
@@ -30,3 +30,10 @@ var blueColor = Color(0xff85a4e7);
 var redColor = Color(0xffd17db8);
 var purpleColor = Color(0xffb084d1);
 var greenColor = Color(0xff4ba2b6);
+
+// Page heading
+
+headingStyle() {
+  return const TextStyle(
+      color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold);
+}

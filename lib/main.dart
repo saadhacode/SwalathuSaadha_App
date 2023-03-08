@@ -6,6 +6,7 @@ import 'package:swalathusaadha_app/views/screens/bookmark.dart';
 import 'package:swalathusaadha_app/views/screens/counter.dart';
 import 'package:swalathusaadha_app/views/screens/dua.dart';
 import 'package:swalathusaadha_app/views/screens/live.dart';
+import 'package:swalathusaadha_app/views/screens/login.dart';
 import 'package:swalathusaadha_app/views/screens/moulid.dart';
 import 'package:swalathusaadha_app/views/screens/nasweehath.dart';
 import 'package:swalathusaadha_app/views/screens/quran.dart';
@@ -65,6 +66,9 @@ class MyApp extends StatelessWidget {
         },
         'bookmark': (ctx) {
           return const BookmarkPage();
+        },
+        'login': (ctx) {
+          return const LoginPage();
         },
       },
     );
