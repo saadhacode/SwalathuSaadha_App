@@ -21,15 +21,15 @@ miniStyle() {
 }
 
 // App Colors
-var backgroundColor = Color.fromRGBO(247, 236, 222, 0);
+var backgroundColor = const Color.fromRGBO(238, 236, 232, 1);
 var primaryColor = Colors.teal;
-var secondaryColor = Color(0xff7bc496);
+var secondaryColor = const Color(0xff7bc496);
 
 // Dashboard color
-var blueColor = Color(0xff85a4e7);
-var redColor = Color(0xffd17db8);
-var purpleColor = Color(0xffb084d1);
-var greenColor = Color(0xff4ba2b6);
+var blueColor = const Color(0xff85a4e7);
+var redColor = const Color(0xffd17db8);
+var purpleColor = const Color(0xffb084d1);
+var greenColor = const Color(0xff4ba2b6);
 
 // Page heading
 

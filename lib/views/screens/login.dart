@@ -8,7 +8,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SingleChildScrollView(
+        physics:const BouncingScrollPhysics(),
         child: Column(
           children: [
             Container(
@@ -59,7 +60,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   Positioned(
                     child: Container(
-                      margin: EdgeInsets.only(top: 50),
+                      margin: const EdgeInsets.only(top: 50),
                       child: Center(
                         child: Text(
                           'Login',
@@ -76,22 +77,70 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Color.fromRGBO(143, 148, 251, .2),
+                              blurRadius: 20.0,
+                              offset: Offset(0, 10)),
+                        ]),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                              border: Border(
+                                  bottom: BorderSide(
+                                      color: Colors.grey.shade100))),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Name",
+                              hintStyle:
+                                  TextStyle(color: Colors.grey.shade400),
+                            ),
                           ),
-                        )
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Phone Number",
+                              hintStyle:
+                                  TextStyle(color: Colors.grey.shade400),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color.fromRGBO(143, 148, 251, 1),
+                          Color.fromRGBO(143, 148, 251, .6),
+                        ],
+                      ),
+                    ),
+                    child: const Center(
+                        child: Text(
+                      'Sign With Google',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
                   )
                 ],
               ),

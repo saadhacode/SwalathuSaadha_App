@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:swalathusaadha_app/views/home.dart';
 import 'package:swalathusaadha_app/views/screens/about.dart';
+
 import 'package:swalathusaadha_app/views/screens/adkaar.dart';
 import 'package:swalathusaadha_app/views/screens/bookmark.dart';
 import 'package:swalathusaadha_app/views/screens/counter.dart';
@@ -10,10 +12,13 @@ import 'package:swalathusaadha_app/views/screens/login.dart';
 import 'package:swalathusaadha_app/views/screens/moulid.dart';
 import 'package:swalathusaadha_app/views/screens/nasweehath.dart';
 import 'package:swalathusaadha_app/views/screens/quran.dart';
+import 'package:swalathusaadha_app/views/screens/splash.dart';
 import 'package:swalathusaadha_app/views/screens/swa_thasbeeh.dart';
 import 'package:swalathusaadha_app/views/screens/update.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(const MyApp());
 }
 
@@ -29,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const HomePage(),
+      home:  CounterPage(),
       routes: {
         'home': (ctx) {
           return const HomePage();
@@ -56,7 +61,7 @@ class MyApp extends StatelessWidget {
           return const DuaPage();
         },
         'counter': (ctx) {
-          return const CounterPage();
+          return  CounterPage();
         },
         'swa_thasbeeh': (ctx) {
           return const SwaThasbeeh();

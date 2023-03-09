@@ -14,9 +14,9 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         centerTitle: true,
-        leading: Icon(
+        leading: const Icon(
           Icons.sort_rounded,
-          color: greenColor,
+          color: Colors.lightBlue,
         ),
         title: Text(
           "Swalathu Saadha",
@@ -24,15 +24,15 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: CircleAvatar(
-              backgroundColor: blueColor,
+            icon: const CircleAvatar(
+              backgroundColor: Colors.lightBlue,
               radius: 50,
-              backgroundImage: const AssetImage(
+              backgroundImage: AssetImage(
                 "assets/icons/profile.png",
               ),
             ),
             onPressed: () {
-              print('Profile button Pressed');
+              Navigator.of(context).pushNamed('login');
             },
           )
         ],
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                 child: Center(
                   child: Image(
                     image: const AssetImage('assets/icons/logo.png'),
-                    width: width * .2,
+                    width: width * .3,
                   ),
                 ),
               ),
@@ -118,7 +118,7 @@ class Dashboard extends StatelessWidget {
             ],
           ),
         ),
-        Spacer(),
+        const Spacer(),
         SizedBox(
           child: Column(
             children: [
@@ -199,7 +199,7 @@ class CustomContainer extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(1.5, 3), // changes position of shadow
+                  offset: const Offset(1.5, 3), // changes position of shadow
                 ),
               ],
               image: const DecorationImage(
@@ -224,14 +224,14 @@ class CustomContainer extends StatelessWidget {
                     width: width * .15,
                     height: height * .07,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Padding(
                     padding: EdgeInsets.only(left: width * .02),
                     child: Text(title, style: titleStyle()),
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: width * .02),
-                    child: GotoWidget(),
+                    child: const GotoWidget(),
                   )
                 ],
               ),
@@ -268,10 +268,11 @@ class LiveUpdate extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(1.5, 3), // changes position of shadow
+                        offset:
+                            const Offset(1.5, 3), // changes position of shadow
                       ),
                     ],
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         image: AssetImage('assets/icons/update.png'),
                         fit: BoxFit.contain),
                     borderRadius: BorderRadius.circular(30)),
@@ -321,10 +322,11 @@ class LiveUpdate extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
-                          offset: Offset(1.5, 3), // changes position of shadow
+                          offset: const Offset(
+                              1.5, 3), // changes position of shadow
                         ),
                       ],
-                      image: DecorationImage(
+                      image: const DecorationImage(
                           image: AssetImage('assets/icons/live.png'),
                           fit: BoxFit.contain),
                       borderRadius: BorderRadius.circular(30)),
@@ -390,10 +392,10 @@ class LastReadWidget extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 5,
                 blurRadius: 7,
-                offset: Offset(1.5, 3), // changes position of shadow
+                offset: const Offset(1.5, 3), // changes position of shadow
               ),
             ],
-            image: DecorationImage(
+            image: const DecorationImage(
                 image: AssetImage('assets/icons/dashboard.png'),
                 fit: BoxFit.fill),
             borderRadius: BorderRadius.circular(25)),
@@ -421,7 +423,7 @@ class LastReadWidget extends StatelessWidget {
                     ),
                   ),
                 )),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: EdgeInsets.only(right: width * .02),
               child: SizedBox(
@@ -451,10 +453,10 @@ class GotoWidget extends StatelessWidget {
       // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Go to', style: miniStyle()),
-        SizedBox(
+        const SizedBox(
           width: 7,
         ),
-        Icon(
+        const Icon(
           Icons.arrow_forward_ios,
           color: Colors.white,
           size: 13,
