@@ -25,28 +25,34 @@ class _CounterScreenState extends State<CounterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        centerTitle: true,
-        leading: const Icon(
-          Icons.sort_rounded,
+        elevation: 0,
+        iconTheme: const IconThemeData(
           color: Colors.lightBlue,
         ),
-        actions: [
-          IconButton(
-            icon: const CircleAvatar(
-              backgroundColor: Colors.lightBlue,
-              radius: 50,
-              backgroundImage: AssetImage(
-                "assets/icons/profile.png",
-              ),
-            ),
-            onPressed: () {
-              Navigator.of(context).pushNamed('login');
-            },
-          )
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: const CircleAvatar(
+        //       backgroundColor: Colors.lightBlue,
+        //       radius: 50,
+        //       backgroundImage: AssetImage(
+        //         "assets/icons/profile.png",
+        //       ),
+        //     ),
+        //     onPressed: () {
+        //       Navigator.of(context).pushNamed('login');
+        //     },
+        //   )
+        // ],
+
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(25),
+            bottomRight: Radius.circular(25),
+          ),
+        ),
       ),
       body: Container(
         color: Colors.grey.shade300,
@@ -54,29 +60,38 @@ class _CounterScreenState extends State<CounterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
+              const Text(
+                'Counter',
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.lightBlue),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
                     height: 80,
                     width: 200,
-                    color: Colors.grey.shade400,
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          color: Colors.blue.withOpacity(0.2),
-                        ),
-                        child: Center(
-                          child: Text(
-                            '$_counter',
-                            style: TextStyle(
-                                fontSize: 35, fontWeight: FontWeight.bold),
-                          ),
+                    color: Colors.transparent,
+                    child:
+                        // BackdropFilter(
+                        //   filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                        //   child:
+                        Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Colors.blue.withOpacity(0.2),
+                      ),
+                      child: Center(
+                        child: Text(
+                          '$_counter',
+                          style: const TextStyle(
+                              fontSize: 35, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
+                    // ),
                     // child: Center(
                     //   child: Text(
                     //     '$_counter',
@@ -95,13 +110,13 @@ class _CounterScreenState extends State<CounterPage> {
                         padding: const EdgeInsets.only(right: 30),
                         child: ElevatedButton(
                           onPressed: _resetCounter,
-                          child: Text('Reset'),
-                          style: ButtonStyle(),
+                          child: const Text('Reset'),
+                          style: const ButtonStyle(),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Container(
@@ -119,13 +134,13 @@ class _CounterScreenState extends State<CounterPage> {
                             color: Colors.grey.shade400,
                             borderRadius: BorderRadius.circular(100),
                             boxShadow: [
-                              BoxShadow(
-                                color: Colors.teal,
+                              const BoxShadow(
+                                color: Colors.lightBlue,
                                 spreadRadius: 1,
                                 blurRadius: 8,
                                 offset: Offset(4, 4),
                               ),
-                              BoxShadow(
+                              const BoxShadow(
                                 color: Colors.white,
                                 spreadRadius: 1,
                                 blurRadius: 8,
@@ -133,12 +148,12 @@ class _CounterScreenState extends State<CounterPage> {
                               )
                             ],
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               'Count',
                               style: TextStyle(
-                                  color: Colors.teal,
-                                  fontSize: 18,
+                                  color: Colors.lightBlue,
+                                  fontSize: 25,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),

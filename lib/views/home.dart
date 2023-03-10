@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:swalathusaadha_app/style/style.dart';
+import 'package:swalathusaadha_app/views/widgets/navbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,15 +10,19 @@ class HomePage extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
+      drawer: const NavBar(),
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 0.0,
+        elevation: 0,
         centerTitle: true,
-        leading: const Icon(
-          Icons.sort_rounded,
+        iconTheme: const IconThemeData(
           color: Colors.lightBlue,
         ),
+        // leading: const Icon(
+        //   Icons.sort_rounded,
+        //   color: Colors.lightBlue,
+        // ),
         title: Text(
           "Swalathu Saadha",
           style: titleGreenStyle(),

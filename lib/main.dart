@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home:  CounterPage(),
+      home:  const SplashScreen(),
       routes: {
         'home': (ctx) {
           return const HomePage();
